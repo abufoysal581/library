@@ -8,7 +8,7 @@ function Login() {
         <div className="text-center mb-5">
             <img src="./assets/images/favicon.png" height="48" className='mb-4'/>
             <h3>Sign In</h3>
-            <p>Please sign in to continue to Voler.</p>
+            <p>Please sign in to continue to library</p>
         </div>
         <form action="index.html">
             <div className="form-group position-relative has-icon-left">
