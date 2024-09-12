@@ -1,6 +1,23 @@
 import React from 'react'
+import { Link,useLocation } from 'react-router-dom'
 
 function Header() {
+    const activeMenu=(e)=>{
+        document.querySelectorAll('.submenu').forEach(
+            function(e){
+                e.classList.remove('active');
+            }
+        )
+        const childElement = e.target.parentElement.querySelector('.submenu');
+        if(childElement && childElement.classList.contains('submenu')){
+            childElement.classList.add('active');
+        }
+    }
+
+	const location = useLocation();
+	const isLinkActive = (path)=>{
+        return location.pathname == path ? 'active' : "";
+    }
   return (
     <header className="topbar">
         <nav className="navbar top-navbar navbar-expand-md navbar-light">
@@ -57,7 +74,14 @@ function Header() {
                             id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
                                 src="../assets/images/users/1.jpg" alt="user" className="" /> <span
                                 className="hidden-md-down">Mark Sanders &nbsp;</span> </a>
-                        <ul className="dropdown-menu" aria-labelledby="navbarDropdown"></ul>
+                        <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li onClick={activeMenu}s className={`sidebar-item ${isLinkActive("/Login")}`} style={{textDecoration: "none", textAlign: "center"}}>
+                                <Link to={"/Login"} className={`sidebar-link`}>
+                                    <i data-feather="home" width="20"></i> 
+                                    <span>Logout</span>
+                                </Link>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
