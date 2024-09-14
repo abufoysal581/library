@@ -1,8 +1,23 @@
-import React from 'react';
+import React,{useState} from 'react';
 import AuthLayout from '../../layouts/AuthLayout';
-import { Link } from 'react-router-dom';
-
+import { Link,useNavigate } from 'react-router-dom';
+import { login } from '../../Api/AllApi';
 function Login() {
+    const navigate = useNavigate();
+    const [inputs, setInputs ] = useState([]);
+    const handleChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setInputs(values =>({...values, [name]: value}))
+    }
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        let check = await login(inputs);
+        if(check)
+            navigate('/');
+        else
+            alert("Sorry password or email address is wrong!");
+    }
   return (
     <AuthLayout>
         <div className="text-center mb-5">

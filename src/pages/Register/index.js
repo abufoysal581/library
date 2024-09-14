@@ -1,8 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AuthLayout from '../../layouts/AuthLayout';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
+import { register } from '../../Api/AllApi';
 
 function Register() {
+    const [inputs, setInputs] = useState([]);
+    const navigate=useNavigate();
+
+    // let signup = async(inputs) => {
+    //     await register(inputs);
+    //     navigate('/signin');
+    // }
+
+    const handleChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setInputs(values => ({...values, [name]: value}));
+    }
+
+    const handleSubmit = async(e) => {
+        e.preventDefault();
+        await register(inputs);
+        navigate('/login')
+    }
   return (
     <AuthLayout>
         <div className="text-center mb-5">
@@ -32,13 +52,13 @@ function Register() {
                 </div>
                 <div className="col-md-6 col-12">
                     <div className="form-group">
-                        <label for="country-floating">Country</label>
+                        <label for="country-floating">Password</label>
                         <input type="text" id="country-floating" className="form-control" name="country-floating"/>
                     </div>
                 </div>
                 <div className="col-md-6 col-12">
                     <div className="form-group">
-                        <label for="company-column">Company</label>
+                        <label for="company-column">Phone</label>
                         <input type="text" id="company-column" className="form-control" name="company-column"/>
                     </div>
                 </div>
