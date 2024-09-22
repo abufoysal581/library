@@ -2,9 +2,10 @@ import axios from 'axios';
 import {useNavigate } from "react-router-dom";
 
 const login = async (data) => {
-    const LOGIN_ENDPOINT = `http://localhost/library/library_api/login.php`;
+    const LOGIN_ENDPOINT = `http://localhost/library/login.php`;
     try{
         let response = await axios.post(LOGIN_ENDPOINT, data);
+        //console.log(response);
         if(response.data.jwt){
             localStorage.setItem("access_token", response.data.jwt);
             localStorage.setItem("userdata", response.data.datas);
@@ -18,7 +19,7 @@ const login = async (data) => {
     }
 }
 const register = async (data)=> {
-    const SIGNUP_ENDPOINT = `http://localhost/library/library_api/register.php`;
+    const SIGNUP_ENDPOINT = `http://localhost/library/register.php`;
     try{
         let response= await axios({
             method: 'post',

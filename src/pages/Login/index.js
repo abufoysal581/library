@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import AuthLayout from '../../layouts/AuthLayout';
 import { Link,useNavigate } from 'react-router-dom';
 import { login } from '../../Api/AllApi';
@@ -13,10 +13,11 @@ function Login() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         let check = await login(inputs);
-        if(check)
-            navigate('/');
-        else
+        if(check){
+            window.location="http://localhost:3000/"
+        }else{
             alert("Sorry password or email address is wrong!");
+        }
     }
   return (
     <AuthLayout>
@@ -25,11 +26,11 @@ function Login() {
             <h3>Sign In</h3>
             <p>Please sign in to continue to library</p>
         </div>
-        <form action="index.html">
+        <form onSubmit={handleSubmit}>
             <div className="form-group position-relative has-icon-left">
                 <label for="username">Username</label>
                 <div className="position-relative">
-                    <input type="text" className="form-control" id="username"/>
+                    <input type="text" className="form-control" id="username" name="username" onChange={handleChange}/>
                     <div className="form-control-icon">
                         <i data-feather="user"></i>
                     </div>
@@ -43,7 +44,7 @@ function Login() {
                     </a>
                 </div>
                 <div className="position-relative">
-                    <input type="text" className="form-control" id="password"/>
+                    <input type="text" className="form-control" id="password" name="password" onChange={handleChange}/>
                     <div className="form-control-icon">
                         <i data-feather="lock"></i>
                     </div>

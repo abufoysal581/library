@@ -25,26 +25,28 @@ function Sidebar() {
             {/* Sidebar navigation*/}
             <nav className="sidebar-nav">
                 <ul id="sidebarnav">
-                    <li> <a className="waves-effect waves-dark" href="index.html" aria-expanded="false"><i
-                                className="fa fa-tachometer"></i><span className="hide-menu">Dashboard</span></a>
+                    <li> <Link className="waves-effect waves-dark" to="/" aria-expanded="false"><i
+                                className="fa fa-tachometer"></i><span className="hide-menu">Dashboard</span></Link>
                     </li>
-                    <li> <a className="waves-effect waves-dark" href="pages-profile.html" aria-expanded="false"><i
-                                className="fa fa-user-circle-o"></i><span className="hide-menu">Profile</span></a>
+                    <li> <Link to="/admins" className="waves-effect waves-dark" aria-expanded="false"><i
+                                className="fa fa-user-circle-o"></i><span className="hide-menu">Admins</span></Link>
                     </li>
-                    <li> <a className="waves-effect waves-dark" href="table-basic.html" aria-expanded="false"><i
-                                className="fa fa-table"></i><span className="hide-menu">Tables</span></a>
+                    <li> <Link to="/books" className="waves-effect waves-dark" aria-expanded="false"><i
+                                className="fa fa-table"></i><span className="hide-menu">Books</span></Link>
+                      </li>
+                      
+                    <li> <Link to="/users" className="waves-effect waves-dark" aria-expanded="false"><i
+                                className="fa fa-table"></i><span className="hide-menu">Users</span></Link>
                     </li>
-                    <li> <a className="waves-effect waves-dark" href="icon-fontawesome.html" aria-expanded="false"><i
-                                className="fa fa-smile-o"></i><span className="hide-menu">Icons</span></a>
+                   
+                    <li> <Link to="/borrowedoverdue" className="waves-effect waves-dark" aria-expanded="false"><i
+                                className="fa fa-globe"></i><span className="hide-menu">Borrow/Overdue</span></Link>
                     </li>
-                    <li> <a className="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i
-                                className="fa fa-globe"></i><span className="hide-menu">Map</span></a>
+                    <li> <Link to="/stock" className="waves-effect waves-dark" aria-expanded="false"><i
+                                className="fa fa-bookmark-o"></i><span className="hide-menu">Stock</span></Link>
                     </li>
-                    <li> <a className="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i
-                                className="fa fa-bookmark-o"></i><span className="hide-menu">Blank</span></a>
-                    </li>
-                    <li> <a className="waves-effect waves-dark" href="pages-error-404.html" aria-expanded="false"><i
-                                className="fa fa-question-circle"></i><span className="hide-menu">404</span></a>
+                    <li> <Link to="/Book_catagory" className="waves-effect waves-dark" aria-expanded="false"><i
+                                className="fa fa-question-circle"></i><span className="hide-menu">Book-catagory</span></Link>
                     </li>
                 </ul>
                
